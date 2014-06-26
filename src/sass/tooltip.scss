@@ -13,7 +13,7 @@ $arrow-width: 14px;
     overflow: visible;
     padding: 0;
     border: 1px solid get-color(gray);
-    border-radius: 3px;
+    border-radius: $border-radius;
     background: get-color(white);
     box-shadow: 0 0 6px get-color(gray);
     color: get-color(dark-gray);
