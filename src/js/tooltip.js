@@ -77,7 +77,6 @@ function Tooltip(elements, options) {
                 };
             for (i = 0; i < this.elements.length; i += 1) {
                 this.elements[i].addEventListener(this.trigger, showHandler);
-                // associa mouseleave caso tooltip seja ativada no hover
                 if (this.trigger === 'mouseenter') {
                     this.elements[i].addEventListener('mouseleave', hideHandler);
                 }
@@ -141,6 +140,7 @@ function Tooltip(elements, options) {
             this.tooltipEl.style.left = this.getLeft(el.clientWidth, offset) + 'px';
         },
 
+        // TODO: ugly
         getTop: function getTop(height, offset) {
             var scrollY = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop,
                 topPosition = offset.top + scrollY + this.options.diffTop;
@@ -158,6 +158,7 @@ function Tooltip(elements, options) {
             return topPosition;
         },
 
+        // TODO: ugly
         getLeft: function getLeft(width, offset) {
             var leftPosition = offset.left + this.options.diffLeft;
             if (this.position === 'left' || this.position.indexOf('left-') !== -1) {
