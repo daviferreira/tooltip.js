@@ -5,18 +5,20 @@ $arrow-height: 10px;
 $arrow-width: 14px;
 
 .tooltip {
-    &, &:before, &:after, *, *:before, *:after {
-        box-sizing: border-box;
-    }
+
     position: relative;
     display: inline-block;
     overflow: visible;
     padding: 0;
-    border: 1px solid get-color(gray);
+    border: 1px solid $gray;
     border-radius: $border-radius;
-    background: get-color(white);
-    box-shadow: 0 0 6px get-color(gray);
-    color: get-color(dark-gray);
+    background: $white;
+    box-shadow: 0 0 6px $gray;
+    color: $dark-gray;
+    &, &:before, &:after, *, *:before, *:after {
+        box-sizing: border-box;
+    }
+
     &:before, &:after {
         position: absolute;
         left: 50%;
@@ -24,85 +26,105 @@ $arrow-width: 14px;
         height: 0;
         border-style: solid;
         content: '';
+        // improves rendering for webkit browsers
         -webkit-transform: rotate(360deg);
     }
+
     &:before {
         bottom: -($arrow-height + 1);
         margin-left: -(($arrow-width + 2)/2);
         border-width: ($arrow-height + 1) (($arrow-width + 2)/2) 0 (($arrow-width + 2)/2);
-        border-color: get-color(dark-gray) transparent transparent transparent;
+        border-color: $dark-gray transparent transparent transparent;
     }
 
     &:after {
         bottom: -($arrow-height);
         margin-left: -($arrow-width/2);
         border-width: $arrow-height ($arrow-width/2) 0 ($arrow-width/2);
-        border-color: get-color(white) transparent transparent transparent;
+        border-color: $white transparent transparent transparent;
     }
 }
 
 .tooltip-top-left {
     &:before, &:after {
-        left: $arrow-width;
         margin-left: 0;
     }
+
     &:before {
         left: $arrow-width - 1;
+    }
+
+    &:after {
+        left: $arrow-width;
     }
 }
 
 .tooltip-top-right {
     &:before, &:after {
         left: auto;
-        right: $arrow-width;
         margin-left: 0;
     }
+
     &:before {
         right: $arrow-width - 1;
+    }
+
+    &:after {
+        right: $arrow-width;
     }
 }
 
 .tooltip-right {
     &:before, &:after {
         top: 50%;
-        margin-top: -($arrow-width/2);
         margin-left: 0;
     }
-    &:before {
-        margin-top: -(($arrow-width + 2)/2);
-    }
+
     &:before {
         left: -($arrow-height + 1);
+        margin-top: -(($arrow-width + 2)/2);
         border-width: (($arrow-width + 2)/2) ($arrow-height + 1) (($arrow-width + 2)/2) 0;
-        border-color: transparent get-color(dark-gray) transparent transparent;
+        border-color: transparent $dark-gray transparent transparent;
     }
+
     &:after {
         left: -($arrow-height);
+        margin-top: -($arrow-width/2);
         border-width: ($arrow-width/2) $arrow-height ($arrow-width/2) 0;
-        border-color: transparent get-color(white) transparent transparent;
+        border-color: transparent $white transparent transparent;
     }
 }
 
 .tooltip-right-top {
     @extend .tooltip-right;
+
     &:before, &:after {
-        top: $arrow-height;
         margin-top: 0;
     }
+
     &:before {
         top: $arrow-height - 1;
+    }
+
+    &:after {
+        top: $arrow-height;
     }
 }
 
 .tooltip-right-bottom {
     @extend .tooltip-right;
+
     &:before, &:after {
         top: auto;
-        bottom: $arrow-height;
         margin-top: 0;
     }
+
     &:before {
         bottom: $arrow-height - 1;
+    }
+
+    &:after {
+        bottom: $arrow-height;
     }
 }
 
@@ -111,36 +133,47 @@ $arrow-width: 14px;
     &:before {
         top: -($arrow-height + 1);
         border-width: 0 (($arrow-width + 2)/2) ($arrow-height + 1) (($arrow-width + 2)/2);
-        border-color: transparent transparent get-color(dark-gray) transparent;
+        border-color: transparent transparent $dark-gray transparent;
     }
+
     &:after {
         top: -($arrow-height);
         border-width: 0 ($arrow-width/2) $arrow-height ($arrow-width/2);
-        border-color: transparent transparent get-color(white) transparent;
+        border-color: transparent transparent $white transparent;
     }
 
 }
 
 .tooltip-bottom-left {
     @extend .tooltip-bottom;
+
     &:before, &:after {
-        left: $arrow-width;
         margin-left: 0;
     }
+
     &:before {
         left: $arrow-width - 1;
+    }
+
+    &:after {
+        left: $arrow-width;
     }
 }
 
 .tooltip-bottom-right {
     @extend .tooltip-bottom;
+
     &:before, &:after {
-        right: $arrow-width;
         left: auto;
         margin-left: 0;
     }
+
     &:before {
         right: $arrow-width - 1;
+    }
+
+    &:after {
+        right: $arrow-width;
     }
 }
 
@@ -148,44 +181,54 @@ $arrow-width: 14px;
     &:before, &:after {
         top: 50%;
         left: auto;
-        margin-top: -($arrow-width/2);
         margin-left: 0;
     }
-    &:before {
-        margin-top: -(($arrow-width + 2)/2)
-    }
+
     &:before {
         right: -($arrow-height + 1);
+        margin-top: -(($arrow-width + 2)/2);
         border-width: (($arrow-width + 2)/2) 0 (($arrow-width + 2)/2) ($arrow-height + 1);
-        border-color: transparent transparent transparent get-color(dark-gray);
+        border-color: transparent transparent transparent $dark-gray;
     }
+
     &:after {
         right: -($arrow-height);
+        margin-top: -($arrow-width/2);
         border-width: ($arrow-width/2) 0 ($arrow-width/2) $arrow-height;
-        border-color: transparent transparent transparent get-color(white);
+        border-color: transparent transparent transparent $white;
     }
 }
 
 .tooltip-left-top {
     @extend .tooltip-left;
+
     &:before, &:after {
-        top: $arrow-height;
         margin-top: 0;
     }
+
     &:before {
         top: $arrow-height - 1;
+    }
+
+    &:after {
+        top: $arrow-height;
     }
 }
 
 .tooltip-left-bottom {
     @extend .tooltip-left;
+
     &:before, &:after {
         top: auto;
-        bottom: $arrow-height;
         margin-top: 0;
     }
+
     &:before {
         bottom: $arrow-height - 1;
+    }
+
+    &:after {
+        bottom: $arrow-height;
     }
 }
 
