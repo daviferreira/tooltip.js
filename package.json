@@ -1,0 +1,28 @@
+{
+  "name": "tooltip.js",
+  "version": "0.0.1",
+  "author": "Davi Ferreira <hi@daviferreira.com>",
+  "description": "Simple tooltip script.",
+  "main": ["dist/js/tooltip.js", "dist/css/tooltip.css"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/daviferreira/tooltip.js"
+  },
+  "bugs": {
+    "url": "https://github.com/daviferreira/tooltip.js/issues",
+    "email": "hi@daviferreira.com"
+  },
+  "homepage": "http://daviferreira.github.io/tooltip.js/",
+  "keywords": [
+    "tooltip",
+    "hint",
+    "alt",
+    "helper"
+  ],
+  "license": "THE BEER-WARE LICENSE",
+  "devDependencies": {
+    "gulp": "^3.7.0",
+    "gulp-autoprefixer": "0.0.7",
+    "gulp-ruby-sass": "~0.5.0"
+  }
+}
