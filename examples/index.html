@@ -8,100 +8,35 @@
 </head>
 <body>
     <div class="container">
-        <h3>Tooltip CSS</h3>
-        <div class="tooltip-css">
-            <div class="tooltip-container clearfix">
-                <div class="tooltip tooltip-top-left">
-                    <div class="tooltip-content">
-                        Tooltip Content<br>Multi-line<br>Third
-                    </div>
-                </div>
+        <h3>tooltip.js</h3>
 
-                <div class="tooltip">
-                    <div class="tooltip-content">
-                        Tooltip Content<br>Multi-line<br>Third
-                    </div>
-                </div>
+        <div class="tooltip-box" data-tooltip-position="top-right" data-tooltip-content="tooltip top right"></div>
+        <div class="tooltip-box" data-tooltip-content="tooltip top"></div>
+        <div class="tooltip-box" data-tooltip-position="top-left" data-tooltip-content="tooltip top left"></div>
 
-                <div class="tooltip tooltip-top-right">
-                    <div class="tooltip-content">
-                        Tooltip Content<br>Multi-line<br>Third
-                    </div>
-                </div>
+        <hr>
 
-                <hr>
+        <div class="tooltip-box" data-tooltip-position="right-top" data-tooltip-content="tooltip right<br>top"></div>
+        <div class="tooltip-box" data-tooltip-position="right" data-tooltip-content="tooltip<br>right"></div>
+        <div class="tooltip-box" data-tooltip-position="right-bottom" data-tooltip-content="tooltip right<br>bottom"></div>
 
-                <div class="tooltip tooltip-right-top">
-                    <div class="tooltip-content">
-                        Tooltip Content<br>
-                        Tooltip Content<br>
-                        Tooltip Content
-                    </div>
-                </div>
+        <hr>
 
-                <div class="tooltip tooltip-right">
-                    <div class="tooltip-content">
-                        Tooltip Content
-                    </div>
-                </div>
+        <div class="tooltip-box" data-tooltip-position="bottom-left" data-tooltip-content="tooltip bottom left"></div>
+        <div class="tooltip-box" data-tooltip-position="bottom" data-tooltip-content="tooltip bottom"></div>
+        <div class="tooltip-box" data-tooltip-position="bottom-right" data-tooltip-content="tooltip bottom right"></div>
 
-                <div class="tooltip tooltip-right-bottom">
-                    <div class="tooltip-content">
-                        Tooltip Content<br>
-                        Tooltip Content<br>
-                        Tooltip Content
-                    </div>
-                </div>
+        <hr>
 
-                <hr>
+        <div class="tooltip-box" data-tooltip-position="left-top" data-tooltip-content="tooltip left<br>top"></div>
+        <div class="tooltip-box" data-tooltip-position="left" data-tooltip-content="tooltip<br>left"></div>
+        <div class="tooltip-box" data-tooltip-position="left-bottom" data-tooltip-content="tooltip left<br>bottom"></div>
 
-                <div class="tooltip tooltip-bottom-left">
-                    <div class="tooltip-content">
-                        Tooltip Content<br>
-                        Tooltip Content<br>
-                        Tooltip Content
-                    </div>
-                </div>
-
-                <div class="tooltip tooltip-bottom">
-                    <div class="tooltip-content">
-                        Tooltip Content
-                    </div>
-                </div>
-
-                <div class="tooltip tooltip-bottom-right">
-                    <div class="tooltip-content">
-                        Tooltip Content<br>
-                        Tooltip Content<br>
-                        Tooltip Content
-                    </div>
-                </div>
-
-                <hr>
-
-                <div class="tooltip tooltip-left-top">
-                    <div class="tooltip-content">
-                        Tooltip Content<br>
-                        Tooltip Content<br>
-                        Tooltip Content
-                    </div>
-                </div>
-
-                <div class="tooltip tooltip-left">
-                    <div class="tooltip-content">
-                        Tooltip Content
-                    </div>
-                </div>
-
-                <div class="tooltip tooltip-left-bottom">
-                    <div class="tooltip-content">
-                        Tooltip Content<br>
-                        Tooltip Content<br>
-                        Tooltip Content
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
+
+    <script src="../src/js/tooltip.js"></script>
+    <script>
+    var tooltip = new Tooltip('.tooltip-box');
+    </script>
 </body>
 </html>

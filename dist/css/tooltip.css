@@ -1,6 +1,5 @@
 .tooltip {
-  position: relative;
-  display: inline-block;
+  position: absolute;
   overflow: visible;
   padding: 0;
   border: 1px solid #cccccc;
@@ -32,104 +31,112 @@
     border-width: 10px 7px 0 7px;
     border-color: white transparent transparent transparent; }
 
-.tooltip-top-left:before, .tooltip-top-left:after {
+.tooltip[data-position="top-left"]:before, .tooltip[data-position="top-left"]:after {
   margin-left: 0; }
-.tooltip-top-left:before {
+.tooltip[data-position="top-left"]:before {
   left: 13px; }
-.tooltip-top-left:after {
+.tooltip[data-position="top-left"]:after {
   left: 14px; }
 
-.tooltip-top-right:before, .tooltip-top-right:after {
+.tooltip[data-position="top-right"]:before, .tooltip[data-position="top-right"]:after {
   left: auto;
   margin-left: 0; }
-.tooltip-top-right:before {
+.tooltip[data-position="top-right"]:before {
   right: 13px; }
-.tooltip-top-right:after {
+.tooltip[data-position="top-right"]:after {
   right: 14px; }
 
-.tooltip-right:before, .tooltip-right-top:before, .tooltip-right-bottom:before, .tooltip-right:after, .tooltip-right-top:after, .tooltip-right-bottom:after {
+.tooltip[data-position="right"]:before, .tooltip[data-position="right-top"]:before, .tooltip[data-position="right-bottom"]:before, .tooltip[data-position="right"]:after, .tooltip[data-position="right-top"]:after, .tooltip[data-position="right-bottom"]:after {
   top: 50%;
   margin-left: 0; }
-.tooltip-right:before, .tooltip-right-top:before, .tooltip-right-bottom:before {
+.tooltip[data-position="right"]:before, .tooltip[data-position="right-top"]:before, .tooltip[data-position="right-bottom"]:before {
   left: -11px;
   margin-top: -8px;
   border-width: 8px 11px 8px 0;
   border-color: transparent #aaaaaa transparent transparent; }
-.tooltip-right:after, .tooltip-right-top:after, .tooltip-right-bottom:after {
+.tooltip[data-position="right"]:after, .tooltip[data-position="right-top"]:after, .tooltip[data-position="right-bottom"]:after {
   left: -10px;
   margin-top: -7px;
   border-width: 7px 10px 7px 0;
   border-color: transparent white transparent transparent; }
 
-.tooltip-right-top:before, .tooltip-right-top:after {
+.tooltip[data-position="right-top"]:before, .tooltip[data-position="right-top"]:after {
   margin-top: 0; }
-.tooltip-right-top:before {
+.tooltip[data-position="right-top"]:before {
   top: 9px; }
-.tooltip-right-top:after {
+.tooltip[data-position="right-top"]:after {
   top: 10px; }
 
-.tooltip-right-bottom:before, .tooltip-right-bottom:after {
+.tooltip[data-position="right-bottom"]:before, .tooltip[data-position="right-bottom"]:after {
   top: auto;
   margin-top: 0; }
-.tooltip-right-bottom:before {
+.tooltip[data-position="right-bottom"]:before {
   bottom: 9px; }
-.tooltip-right-bottom:after {
+.tooltip[data-position="right-bottom"]:after {
   bottom: 10px; }
 
-.tooltip-bottom:before, .tooltip-bottom-left:before, .tooltip-bottom-right:before {
+.tooltip[data-position="bottom"]:before, .tooltip[data-position="bottom-left"]:before, .tooltip[data-position="bottom-right"]:before {
   top: -11px;
   border-width: 0 8px 11px 8px;
   border-color: transparent transparent #aaaaaa transparent; }
-.tooltip-bottom:after, .tooltip-bottom-left:after, .tooltip-bottom-right:after {
+.tooltip[data-position="bottom"]:after, .tooltip[data-position="bottom-left"]:after, .tooltip[data-position="bottom-right"]:after {
   top: -10px;
   border-width: 0 7px 10px 7px;
   border-color: transparent transparent white transparent; }
 
-.tooltip-bottom-left:before, .tooltip-bottom-left:after {
+.tooltip[data-position="bottom-left"]:before, .tooltip[data-position="bottom-left"]:after {
   margin-left: 0; }
-.tooltip-bottom-left:before {
+.tooltip[data-position="bottom-left"]:before {
   left: 13px; }
-.tooltip-bottom-left:after {
+.tooltip[data-position="bottom-left"]:after {
   left: 14px; }
 
-.tooltip-bottom-right:before, .tooltip-bottom-right:after {
+.tooltip[data-position="bottom-right"]:before, .tooltip[data-position="bottom-right"]:after {
   left: auto;
   margin-left: 0; }
-.tooltip-bottom-right:before {
+.tooltip[data-position="bottom-right"]:before {
   right: 13px; }
-.tooltip-bottom-right:after {
+.tooltip[data-position="bottom-right"]:after {
   right: 14px; }
 
-.tooltip-left:before, .tooltip-left-top:before, .tooltip-left-bottom:before, .tooltip-left:after, .tooltip-left-top:after, .tooltip-left-bottom:after {
+.tooltip[data-position="left"]:before, .tooltip[data-position="left-top"]:before, .tooltip[data-position="left-bottom"]:before, .tooltip[data-position="left"]:after, .tooltip[data-position="left-top"]:after, .tooltip[data-position="left-bottom"]:after {
   top: 50%;
   left: auto;
   margin-left: 0; }
-.tooltip-left:before, .tooltip-left-top:before, .tooltip-left-bottom:before {
+.tooltip[data-position="left"]:before, .tooltip[data-position="left-top"]:before, .tooltip[data-position="left-bottom"]:before {
   right: -11px;
   margin-top: -8px;
   border-width: 8px 0 8px 11px;
   border-color: transparent transparent transparent #aaaaaa; }
-.tooltip-left:after, .tooltip-left-top:after, .tooltip-left-bottom:after {
+.tooltip[data-position="left"]:after, .tooltip[data-position="left-top"]:after, .tooltip[data-position="left-bottom"]:after {
   right: -10px;
   margin-top: -7px;
   border-width: 7px 0 7px 10px;
   border-color: transparent transparent transparent white; }
 
-.tooltip-left-top:before, .tooltip-left-top:after {
+.tooltip[data-position="left-top"]:before, .tooltip[data-position="left-top"]:after {
   margin-top: 0; }
-.tooltip-left-top:before {
+.tooltip[data-position="left-top"]:before {
   top: 9px; }
-.tooltip-left-top:after {
+.tooltip[data-position="left-top"]:after {
   top: 10px; }
 
-.tooltip-left-bottom:before, .tooltip-left-bottom:after {
+.tooltip[data-position="left-bottom"]:before, .tooltip[data-position="left-bottom"]:after {
   top: auto;
   margin-top: 0; }
-.tooltip-left-bottom:before {
+.tooltip[data-position="left-bottom"]:before {
   bottom: 9px; }
-.tooltip-left-bottom:after {
+.tooltip[data-position="left-bottom"]:after {
   bottom: 10px; }
 
 .tooltip-content {
   overflow: hidden;
   padding: 0.66667em 1em; }
+
+.tooltip-fade {
+  opacity: 0;
+  -webkit-transition: opacity .3s linear;
+  transition: opacity .3s linear; }
+
+.tooltip-fade-show {
+  opacity: 1; }

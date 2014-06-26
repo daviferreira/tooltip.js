@@ -1,8 +1,18 @@
 .container {
+    position: relative;
     margin: 0 auto;
     width: 960px;
 }
 
 .tooltip-css .tooltip {
     margin: 10px;
+}
+
+.tooltip-box {
+    display: inline-block;
+    margin: 10px;
+    width: 100px;
+    height: 100px;
+    border-radius: 3px;
+    background-color: #4ca5fe;
 }
