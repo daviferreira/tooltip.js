@@ -116,9 +116,7 @@ function Tooltip(elements, options) {
             }
             this.updatePosition(el);
             this.tooltipContent.innerHTML = this.getContent(el);
-            setTimeout(function () {
-                self.tooltipEl.classList.add('tooltip-fade-show');
-            }, 100);
+            this.tooltipEl.setAttribute('data-tooltip-visible', 'yes');
             this.setPosition(el);
             window.addEventListener('resize', function () {
                 clearTimeout(timer);
@@ -201,6 +199,7 @@ function Tooltip(elements, options) {
             this.tooltipEl.className = 'tooltip tooltip-base tooltip-fade ' +
                                        'tooltip-default';
             this.tooltipEl.innerHTML = '<div class="tooltip-content"></div>';
+            this.tooltipEl.setAttribute('data-tooltip-visible', 'no');
             if (this.options.extraClass) {
                 this.tooltipEl.className += ' ' + this.options.extraClass;
             }
@@ -211,7 +210,7 @@ function Tooltip(elements, options) {
         },
 
         hide: function hide() {
-            this.tooltipEl.classList.remove('tooltip-fade-show');
+            this.tooltipEl.setAttribute('data-tooltip-visible', 'no');
             // TODO
             // bean.off(window, 'resize.tooltip');
             // bean.off(window, 'scroll.tooltip');

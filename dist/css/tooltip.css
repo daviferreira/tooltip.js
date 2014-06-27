@@ -1,4 +1,5 @@
 .tooltip {
+  display: none;
   position: absolute;
   overflow: visible;
   padding: 0;
@@ -30,6 +31,9 @@
     margin-left: -7px;
     border-width: 10px 7px 0 7px;
     border-color: white transparent transparent transparent; }
+
+.tooltip[data-tooltip-visible="yes"] {
+  display: block; }
 
 .tooltip[data-position="top-left"]:before, .tooltip[data-position="top-left"]:after {
   margin-left: 0; }
@@ -132,11 +136,3 @@
 .tooltip-content {
   overflow: hidden;
   padding: 0.66667em 1em; }
-
-.tooltip-fade {
-  opacity: 0;
-  -webkit-transition: opacity .3s linear;
-  transition: opacity .3s linear; }
-
-.tooltip-fade-show {
-  opacity: 1; }

@@ -5,6 +5,7 @@ $arrow-height: 10px;
 $arrow-width: 14px;
 
 .tooltip {
+    display: none;
     position: absolute;
     overflow: visible;
     padding: 0;
@@ -42,6 +43,10 @@ $arrow-width: 14px;
         border-width: $arrow-height ($arrow-width/2) 0 ($arrow-width/2);
         border-color: $white transparent transparent transparent;
     }
+}
+
+.tooltip[data-tooltip-visible="yes"] {
+    display: block;
 }
 
 .tooltip[data-position="top-left"] {
@@ -235,13 +240,3 @@ $arrow-width: 14px;
     overflow: hidden;
     padding: $padding/1.5 $padding;
 }
-
-.tooltip-fade {
-    opacity: 0;
-    transition: opacity .3s linear;
-}
-
-.tooltip-fade-show {
-    opacity: 1;
-}
-
