@@ -110,7 +110,7 @@ function Tooltip(elements, options) {
             if (this.tooltipEl === undefined) {
                 this.createEl();
             }
-            this.updatePosition(el);
+            this.updatePositionAttribute(el);
             this.tooltipContent.innerHTML = this.getContent(el);
             this.tooltipEl.setAttribute('data-tooltip-visible', 'yes');
             this.setPosition(el);
@@ -122,7 +122,7 @@ function Tooltip(elements, options) {
             });
         },
 
-        updatePosition: function updatePosition(el) {
+        updatePositionAttribute: function updatePositionAttribute(el) {
             this.position = el.getAttribute('data-tooltip-position') ||
                             this.options.position;
             this.tooltipEl.setAttribute('data-position', this.position);
