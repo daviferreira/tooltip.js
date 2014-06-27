@@ -6,6 +6,15 @@ function Tooltip(elements, options) {
 (function (window, document, undefined) {
     'use strict';
 
+    // http://ctrlq.org/code/19616-detect-touch-screen-javascript
+    function isTouchDevice() {
+        return (
+            ('ontouchstart' in window) ||
+            (navigator.MaxTouchPoints > 0) ||
+            (navigator.msMaxTouchPoints > 0)
+        );
+    }
+
     function extend(obj, defaults) {
         var prop;
         if (obj === undefined) {
@@ -40,9 +49,8 @@ function Tooltip(elements, options) {
                 .bind();
         },
 
-        // TODO: remove Modernizr dependence
         setTrigger: function setTrigger() {
-            this.trigger = window.Modernizr && window.Modernizr.touch ?
+            this.trigger = isTouchDevice() ?
                            'touchstart' :
                            this.options.trigger;
             this.isClickable = (this.trigger === 'touchstart' ||
