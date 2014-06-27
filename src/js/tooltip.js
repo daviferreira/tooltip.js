@@ -40,6 +40,7 @@ function Tooltip(elements, options) {
                 .bind();
         },
 
+        // TODO: remove Modernizr dependence
         setTrigger: function setTrigger() {
             this.trigger = window.Modernizr && window.Modernizr.touch ?
                            'touchstart' :
