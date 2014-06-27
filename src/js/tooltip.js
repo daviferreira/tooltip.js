@@ -20,7 +20,6 @@ function Tooltip(elements, options) {
     }
 
     Tooltip.prototype = {
-
         defaults: {
             delayHide: 300,
             delayShow: 100,
@@ -115,9 +114,7 @@ function Tooltip(elements, options) {
             if (this.tooltipEl === undefined) {
                 this.createEl();
             }
-            this.position = el.getAttribute('data-tooltip-position') ||
-                            this.options.position;
-            this.tooltipEl.setAttribute('data-position', this.position);
+            this.updatePosition(el);
             this.tooltipContent.innerHTML = this.getContent(el);
             setTimeout(function () {
                 self.tooltipEl.classList.add('tooltip-fade-show');
@@ -129,6 +126,13 @@ function Tooltip(elements, options) {
                     self.setPosition(el);
                 }, 100);
             });
+        },
+
+        updatePosition: function updatePosition(el) {
+            this.position = el.getAttribute('data-tooltip-position') ||
+                            this.options.position;
+            this.tooltipEl.setAttribute('data-position', this.position);
+            this.position = this.position.split('-');
         },
 
         getContent: function getContent(el) {
@@ -150,22 +154,24 @@ function Tooltip(elements, options) {
                                         'px';
         },
 
-        // TODO: ugly
+        // TODO: break method
         getTop: function getTop(height, offset) {
             var scrollY = this.getScrollY(),
                 topPosition = offset.top + scrollY + this.options.diffTop;
-            if (this.position === 'top' || this.position.indexOf('top-') !== -1) {
-                topPosition -= (this.tooltipEl.clientHeight + 14);
-            } else if (this.position === 'bottom' || this.position.indexOf('bottom-') !== -1) {
-                topPosition += (height + 14);
-            } else if (this.position.indexOf('-bottom') !== -1) {
-                topPosition += (height - this.tooltipEl.clientHeight);
-            } else if (this.position.indexOf('-top') !== -1) {
-                topPosition += 0;
-            } else {
-                topPosition += (height/2) - (this.tooltipEl.clientHeight/2);
+            switch (this.position[0]) {
+                case 'top':
+                    return topPosition - (this.tooltipEl.clientHeight + 14);
+                case 'bottom':
+                    return topPosition + (height + 14);
             }
-            return topPosition;
+            switch (this.position[1]) {
+                case 'bottom':
+                    return topPosition +
+                           (height - this.tooltipEl.clientHeight);
+                case 'top':
+                    return topPosition;
+            }
+            return topPosition + (height/2) - (this.tooltipEl.clientHeight/2);
         },
 
         getScrollY: function getScrollY() {
@@ -180,14 +186,15 @@ function Tooltip(elements, options) {
         // TODO: ugly
         getLeft: function getLeft(width, offset) {
             var leftPosition = offset.left + this.options.diffLeft;
-            if (this.position === 'left' || this.position.indexOf('left-') !== -1) {
-                leftPosition -= this.tooltipEl.clientWidth + 14;
-            } else if (this.position === 'right' || this.position.indexOf('right-') !== -1) {
-                leftPosition += (width + 14);
-            } else {
-                leftPosition += (width / 2) - (this.tooltipEl.clientWidth / 2);
+            switch (this.position[0]) {
+                case 'left':
+                    return  leftPosition - (this.tooltipEl.clientWidth + 14);
+                case 'right':
+                    return leftPosition + (width + 14);
             }
-            return leftPosition;
+            return leftPosition +
+                   (width / 2) -
+                   (this.tooltipEl.clientWidth / 2);
         },
 
         createEl: function createEl() {
