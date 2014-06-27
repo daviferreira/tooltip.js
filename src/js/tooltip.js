@@ -86,14 +86,12 @@ function Tooltip(elements, options) {
 
         // TODO: break method
         toggle: function toggle(el) {
-            var isVisible = el.getAttribute('data-tooltip-visible'),
-                self = this;
-            if (isVisible === 'yes') {
+            var self = this;
+            if (el.getAttribute('data-tooltip-visible') === 'yes') {
                 this.hide(el);
                 // TODO
                 // bean.off(this.tooltipEl, this.trigger + '.tooltip');
                 // bean.off(document, this.trigger + '.tooltip');
-                isVisible = 'no';
             } else {
                 this.show(el);
                 this.tooltipEl.addEventListener(this.trigger, function (e) {
@@ -102,9 +100,7 @@ function Tooltip(elements, options) {
                 document.addEventListener(this.trigger, function () {
                     self.toggle(el);
                 });
-                isVisible = 'yes';
             }
-            el.setAttribute('data-tooltip-visible', isVisible);
         },
 
         // TODO: break method
