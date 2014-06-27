@@ -79,9 +79,10 @@ function Tooltip(elements, options) {
                     }, self.options.delayShow);
                 },
                 hideHandler = function (e) {
+                    var el = e.currentTarget;
                     clearTimeout(timer);
                     timer = setTimeout(function () {
-                        self.hide(e.currentTarget);
+                        self.hide(el);
                     }, self.options.delayHide);
                 };
             for (i = 0; i < this.elements.length; i += 1) {
