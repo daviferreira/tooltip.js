@@ -3,7 +3,7 @@ function Tooltip(elements, options) {
     return this.init(elements, options);
 }
 
-(function (window, document) {
+(function (window, document, undefined) {
     'use strict';
 
     function extend(obj, defaults) {
@@ -21,8 +21,8 @@ function Tooltip(elements, options) {
 
     Tooltip.prototype = {
         defaults: {
-            delayHide: 300,
-            delayShow: 100,
+            delayHide: 0,
+            delayShow: 0,
             diffTop: 0,
             diffLeft: 0,
             extraClass: '',
