@@ -183,7 +183,6 @@ function Tooltip(elements, options) {
                     document.body).scrollTop;
         },
 
-        // TODO: ugly
         getLeft: function getLeft(width, offset) {
             var leftPosition = offset.left + this.options.diffLeft;
             switch (this.position[0]) {
