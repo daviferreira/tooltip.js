@@ -50,6 +50,7 @@ function Tooltip(elements, options) {
             return this;
         },
 
+        // TODO: break method
         bind: function bind() {
             var i,
                 self = this,
@@ -78,11 +79,13 @@ function Tooltip(elements, options) {
             for (i = 0; i < this.elements.length; i += 1) {
                 this.elements[i].addEventListener(this.trigger, showHandler);
                 if (this.trigger === 'mouseenter') {
-                    this.elements[i].addEventListener('mouseleave', hideHandler);
+                    this.elements[i].addEventListener('mouseleave',
+                                                      hideHandler);
                 }
             }
         },
 
+        // TODO: break method
         toggle: function toggle(el) {
             var isVisible = el.getAttribute('data-tooltip-visible'),
                 self = this;
@@ -105,13 +108,15 @@ function Tooltip(elements, options) {
             el.setAttribute('data-tooltip-visible', isVisible);
         },
 
+        // TODO: break method
         show: function show(el) {
             var self = this,
                 timer;
             if (this.tooltipEl === undefined) {
                 this.createEl();
             }
-            this.position = el.getAttribute('data-tooltip-position') || this.options.position;
+            this.position = el.getAttribute('data-tooltip-position') ||
+                            this.options.position;
             this.tooltipEl.setAttribute('data-position', this.position);
             this.tooltipContent.innerHTML = this.getContent(el);
             setTimeout(function () {
@@ -127,22 +132,27 @@ function Tooltip(elements, options) {
         },
 
         getContent: function getContent(el) {
-            var contentEl = document.querySelector(el.getAttribute('data-tooltip-el'));
+            var contentEl = document.querySelector(
+                el.getAttribute('data-tooltip-el')
+            );
             if (contentEl) {
                 return contentEl.innerHTML;
             }
-            return el.getAttribute('data-tooltip-content') || el.getAttribute('title');
+            return el.getAttribute('data-tooltip-content') ||
+                   el.getAttribute('title');
         },
 
         setPosition: function setPosition(el) {
             var offset = el.getBoundingClientRect();
-            this.tooltipEl.style.top = this.getTop(el.clientHeight, offset) + 'px';
-            this.tooltipEl.style.left = this.getLeft(el.clientWidth, offset) + 'px';
+            this.tooltipEl.style.top = this.getTop(el.clientHeight, offset) +
+                                       'px';
+            this.tooltipEl.style.left = this.getLeft(el.clientWidth, offset) +
+                                        'px';
         },
 
         // TODO: ugly
         getTop: function getTop(height, offset) {
-            var scrollY = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop,
+            var scrollY = this.getScrollY(),
                 topPosition = offset.top + scrollY + this.options.diffTop;
             if (this.position === 'top' || this.position.indexOf('top-') !== -1) {
                 topPosition -= (this.tooltipEl.clientHeight + 14);
@@ -156,6 +166,15 @@ function Tooltip(elements, options) {
                 topPosition += (height/2) - (this.tooltipEl.clientHeight/2);
             }
             return topPosition;
+        },
+
+        getScrollY: function getScrollY() {
+            if (window.pageYOffset !== undefined) {
+                return window.pageYOffset;
+            }
+            return (document.documentElement ||
+                    document.body.parentNode ||
+                    document.body).scrollTop;
         },
 
         // TODO: ugly
@@ -173,13 +192,16 @@ function Tooltip(elements, options) {
 
         createEl: function createEl() {
             this.tooltipEl  = document.createElement('div');
-            this.tooltipEl.className = 'tooltip tooltip-base tooltip-fade tooltip-default';
+            this.tooltipEl.className = 'tooltip tooltip-base tooltip-fade ' +
+                                       'tooltip-default';
             this.tooltipEl.innerHTML = '<div class="tooltip-content"></div>';
             if (this.options.extraClass) {
                 this.tooltipEl.className += ' ' + this.options.extraClass;
             }
             document.body.appendChild(this.tooltipEl);
-            this.tooltipContent = this.tooltipEl.querySelector('.tooltip-content');
+            this.tooltipContent = this.tooltipEl.querySelector(
+                '.tooltip-content'
+            );
         },
 
         hide: function hide() {
@@ -188,7 +210,5 @@ function Tooltip(elements, options) {
             // bean.off(window, 'resize.tooltip');
             // bean.off(window, 'scroll.tooltip');
         }
-
     };
-
 }(window, document));
