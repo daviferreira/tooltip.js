@@ -10,33 +10,43 @@
     <div class="container">
         <h3>tooltip.js</h3>
 
-        <div class="tooltip-box" data-tooltip-position="top-right" data-tooltip-content="tooltip top right"></div>
-        <div class="tooltip-box" data-tooltip-content="tooltip top"></div>
-        <div class="tooltip-box" data-tooltip-position="top-left" data-tooltip-content="tooltip top left"></div>
+        <div class="tooltip-box tooltip-box-hover" data-tooltip-position="top-right" data-tooltip-content="tooltip top right"></div>
+        <div class="tooltip-box tooltip-box-hover" data-tooltip-content="tooltip top"></div>
+        <div class="tooltip-box tooltip-box-hover" data-tooltip-position="top-left" data-tooltip-content="tooltip top left"></div>
 
         <hr>
 
-        <div class="tooltip-box" data-tooltip-position="right-top" data-tooltip-content="tooltip right<br>top"></div>
-        <div class="tooltip-box" data-tooltip-position="right" data-tooltip-content="tooltip<br>right"></div>
-        <div class="tooltip-box" data-tooltip-position="right-bottom" data-tooltip-content="tooltip right<br>bottom"></div>
+        <div class="tooltip-box tooltip-box-hover" data-tooltip-position="right-top" data-tooltip-content="tooltip right<br>top"></div>
+        <div class="tooltip-box tooltip-box-hover" data-tooltip-position="right" data-tooltip-content="tooltip<br>right"></div>
+        <div class="tooltip-box tooltip-box-hover" data-tooltip-position="right-bottom" data-tooltip-content="tooltip right<br>bottom"></div>
 
         <hr>
 
-        <div class="tooltip-box" data-tooltip-position="bottom-left" data-tooltip-content="tooltip bottom left"></div>
-        <div class="tooltip-box" data-tooltip-position="bottom" data-tooltip-content="tooltip bottom"></div>
-        <div class="tooltip-box" data-tooltip-position="bottom-right" data-tooltip-content="tooltip bottom right"></div>
+        <div class="tooltip-box tooltip-box-hover" data-tooltip-position="bottom-left" data-tooltip-content="tooltip bottom left"></div>
+        <div class="tooltip-box tooltip-box-hover" data-tooltip-position="bottom" data-tooltip-content="tooltip bottom"></div>
+        <div class="tooltip-box tooltip-box-hover" data-tooltip-position="bottom-right" data-tooltip-content="tooltip bottom right"></div>
 
         <hr>
 
-        <div class="tooltip-box" data-tooltip-position="left-top" data-tooltip-content="tooltip left<br>top"></div>
-        <div class="tooltip-box" data-tooltip-position="left" data-tooltip-content="tooltip<br>left"></div>
-        <div class="tooltip-box" data-tooltip-position="left-bottom" data-tooltip-content="tooltip left<br>bottom"></div>
+        <div class="tooltip-box tooltip-box-hover" data-tooltip-position="left-top" data-tooltip-content="tooltip left<br>top"></div>
+        <div class="tooltip-box tooltip-box-hover" data-tooltip-position="left" data-tooltip-content="tooltip<br>left"></div>
+        <div class="tooltip-box tooltip-box-hover" data-tooltip-position="left-bottom" data-tooltip-content="tooltip left<br>bottom"></div>
+
+    </div>
+
+    <div class="container">
+        <h3>tooltip.js</h3>
+
+        <div class="tooltip-box tooltip-box-click" data-tooltip-position="top-right" data-tooltip-content="tooltip top right"></div>
+        <div class="tooltip-box tooltip-box-click" data-tooltip-content="tooltip top"></div>
+        <div class="tooltip-box tooltip-box-click" data-tooltip-position="top-left" data-tooltip-content="tooltip top left"></div>
 
     </div>
 
     <script src="../src/js/tooltip.js"></script>
     <script>
-    var tooltip = new Tooltip('.tooltip-box');
+    var tooltip = new Tooltip('.tooltip-box-hover'),
+        tooltipClick = new Tooltip('.tooltip-box-click', {trigger: 'click'});
     </script>
 </body>
 </html>

@@ -107,7 +107,7 @@ function Tooltip(elements, options) {
                     e.stopPropagation();
                 });
                 document.addEventListener(this.trigger, function () {
-                    self.toggle(el);
+                    self.hide(el);
                 });
             }
         },
@@ -121,7 +121,8 @@ function Tooltip(elements, options) {
             }
             this.updatePositionAttribute(el);
             this.tooltipContent.innerHTML = this.getContent(el);
-            this.tooltipEl.setAttribute('data-tooltip-visible', 'yes');
+            el.setAttribute('data-tooltip-visible', 'yes');
+            this.tooltipEl.classList.add('tooltip-visible');
             this.setPosition(el);
             window.addEventListener('resize', function () {
                 clearTimeout(timer);
@@ -204,7 +205,6 @@ function Tooltip(elements, options) {
             this.tooltipEl.className = 'tooltip tooltip-base tooltip-fade ' +
                                        'tooltip-default';
             this.tooltipEl.innerHTML = '<div class="tooltip-content"></div>';
-            this.tooltipEl.setAttribute('data-tooltip-visible', 'no');
             if (this.options.extraClass) {
                 this.tooltipEl.className += ' ' + this.options.extraClass;
             }
@@ -214,8 +214,9 @@ function Tooltip(elements, options) {
             );
         },
 
-        hide: function hide() {
-            this.tooltipEl.setAttribute('data-tooltip-visible', 'no');
+        hide: function hide(el) {
+            this.tooltipEl.classList.remove('tooltip-visible');
+            el.setAttribute('data-tooltip-visible', 'no');
             // TODO
             // bean.off(window, 'resize.tooltip');
             // bean.off(window, 'scroll.tooltip');

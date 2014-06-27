@@ -32,7 +32,7 @@
     border-width: 10px 7px 0 7px;
     border-color: white transparent transparent transparent; }
 
-.tooltip[data-tooltip-visible="yes"] {
+.tooltip-visible {
   display: block; }
 
 .tooltip[data-position="top-left"]:before, .tooltip[data-position="top-left"]:after {
